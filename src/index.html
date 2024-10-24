@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Virtual Lab</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+
+        <header>
+            <nav class="navcontainer">
+                <div class="logo">
+                    <img src="..\pictures\math_diary4.png" alt="Logo MathDiary">
+                </div>
+                <div class="navmenu" id="menu">
+                    <ul class="navlist">
+                        <li><a href="#mainmenu" class="navlink">Main menu</a></li>
+                        <li><a href="#book" class="navlink">About XYZ</a></li>
+                        <li><a href="#memories" class="navlink">Memories</a></li>
+                        <li><a href="#aboutme" class="navlink">About me</a></li>
+                    </ul>
+                    
+                    <div class="navclose" id="close">
+                        <i class="ri-close-large-line"></i>
+                    </div>
+                </div>
+                <div class="navtoggle" id="toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="menusection" id="mainmenu">
+                <div class = "home">
+                    <h1 class="title">
+                        <span>Math</span>
+                        <span>Diary</span>
+                    </h1>
+
+                    <div class="icon">
+                        <img src="" alt="Profile Icon">
+                    </div>
+        
+                    <h2 class="username"><span>Guest</span></h2>
+
+                    <ul class="homemenu">
+                        <li><a href="#" class="button">Continue</a></li>
+                        <li><a href="#" class="button">Stages</a></li>
+                        <li><a href="#" class="button" id="help">Help</a></li>
+                    </ul>
+
+                </div>
+            </section>
+
+            <section class="booksection" id="book-sec">
+                <div class = "diary">
+                    <button id="prev-btn">
+                        <i class="ri-arrow-left-fill"></i>
+                    </button>
+
+                    <div id="book" class="book">
+                        <!-- Paper 1 -->
+                        <div id="p1" class="paper">
+                            <div class="front">
+                                <div id="f1" class="front-content">
+                                    <h1>Front 1</h1>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div id="b1" class="back-content">
+                                    <h1>Back 1</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Paper 2 -->
+                        <div id="p2" class="paper">
+                            <div class="front">
+                                <div id="f2" class="front-content">
+                                    <h1>Front 2</h1>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div id="b2" class="back-content">
+                                    <h1>Back 2</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Paper 3 -->
+                        <div id="p3" class="paper">
+                            <div class="front">
+                                <div id="f3" class="front-content">
+                                    <h1>Front 3</h1>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div id="b3" class="back-content">
+                                    <h1>Back 3</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Next Button -->
+                    <button id="next-btn">
+                        <i class="ri-arrow-right-fill"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section class="memosection" id="memories">
+                <div class ="drop-revealcontainer">
+                    <div class="dropcontainer">
+                        <div class="dropzone" id="dropzone1"></div>
+                        <div class="dropzone" id="dropzone2"></div>
+                        <div class="dropzone" id="dropzone3"></div>
+                    </div>
+                    <div class ="revealcontainer">
+                        <div class="reveal">
+                            <h3><span>Reveal</span></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "photoscontainer">
+                    <div id = "photoszone">
+                        <div class="photo" id="photo1" draggable="true">
+                            <h3><span>-cos(x)</span></h3>
+                        </div>
+                        <div class="photo" id="photo2" draggable="true">
+                            <h3><span>sin(x)</span></h3>
+                        </div>
+                        <div class="photo" id="photo3" draggable="true">
+                            <h3><span>C</span></h3>
+                        </div>
+                        <div class="photo" id="photo4" draggable="true">
+                            <h3><span>|sin(x)|</span></h3>
+                        </div>
+                        <div class="photo" id="photo5" draggable="true">
+                            <h3><span>ln</span></h3>
+                        </div>
+                        <div class="photo" id="photo6" draggable="true">
+                            <h3><span>C</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mesection" id="aboutme">
+
+            </section>
+        </main>
+
+        <footer>
+
+        </footer>
+
+        <script src="app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*border: 2px solid red;*/
+}
+
+.gaegu-regular {
+    font-family: "Gaegu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+html, body{
+    height: 100%;
+}
+
+/* HEADER */
+
+body{
+    font-family: "Gaegu", cursive;
+    background-color: #e8e8e8;
+    text-align: center;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top : 0;
+    left: 0;
+    background-color: black;
+    z-index: var(---z-fixed);
+    font-family: "Gaegu";
+    padding: 10px, 20px;
+}
+
+.navcontainer{
+    position: relative;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+}
+
+
+.logo img{
+    width: 1.5em;
+    background-color: white;
+}
+
+.navclose{
+    display: inline-flex;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.navtoggle{
+    color: white;
+    display: inline-flex;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.navmenu{
+    position: absolute;
+    top: 0;
+    right: -100%;
+    background: #8c8c8c;
+    width: 40%;
+    height: 1000vh;
+    padding: 8rem 3.5rem 3.5rem;
+    transition: right .4s;
+    z-index: 9999;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.navlist{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+
+.navlink{
+    text-decoration: none;
+    position: relative;
+    color: #8c8c8c;
+    font-size: var(--h2--fontsize);
+    font-family: "Gaegu", sans-serif;
+    padding: 10px 20px; 
+    border: 2px solid white; 
+    display: inline-block; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    text-align: center; 
+    line-height: 1.5;
+    min-width: 150px; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.navlink:after{
+    content: ' 🡰';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -2em;
+    opacity: 0;
+    color: white;
+    transition:all .5s ease-in-out;
+}
+
+.navlink:hover {
+    background-color: #444; 
+    color: white; 
+}
+
+.navlink:hover::after{
+    right: -1.5em;
+    opacity: 1;
+}
+
+.navclose{
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+} 
+
+.memosection{
+    padding-top: 100px; /* Adjust this value based on your header height */
+    min-height: 50vh;  /* Make the section take up the full viewport height */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropcontainer, .revealcontainer{
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex:1;
+}
+
+#dropzone, #reveal {
+    border: 2px solid #000;
+    padding: 20px;
+    width: 200px;
+    height: 100px;
+}
+
+
+#photos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 50px;
+	height: 50px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	/* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#photos img {
+    max-width: 100px;
+    height: auto;
+}
+/* .revealcontainer{
+    border: 2px solid blue;
+    display: block;
+} */
+
+.photoscontainer{
+    border: 2px solid green;
+    display: block;
+}
