@@ -25,8 +25,8 @@
                 <div class="navmenu" id="menu">
                     <ul class="navlist">
                         <li><a href="#mainmenu" class="navlink">Main menu</a></li>
-                        <li><a href="#book" class="navlink">About XYZ</a></li>
-                        <li><a href="#memories" class="navlink">Memories</a></li>
+                        <li><a href="#aboutmd" class="navlink">About MathDiary</a></li>
+                        <li><a href="#memories" class="navlink">Notebook</a></li>
                         <li><a href="#aboutme" class="navlink">About me</a></li>
                     </ul>
                     
@@ -47,87 +47,42 @@
                         <span>Math</span>
                         <span>Diary</span>
                     </h1>
-
-                    <div class="icon">
-                        <img src="" alt="Profile Icon">
-                    </div>
         
-                    <h2 class="username"><span>Guest</span></h2>
-
-                    <ul class="homemenu">
-                        <li><a href="#" class="button">Continue</a></li>
-                        <li><a href="#" class="button">Stages</a></li>
-                        <li><a href="#" class="button" id="help">Help</a></li>
-                    </ul>
+                    <h2 class="username"><span>I will help you remember</span></h2>
 
                 </div>
             </section>
 
-            <section class="booksection" id="book-sec">
-                <div class = "diary">
-                    <button id="prev-btn">
-                        <i class="ri-arrow-left-fill"></i>
-                    </button>
-
-                    <div id="book" class="book">
-                        <!-- Paper 1 -->
-                        <div id="p1" class="paper">
-                            <div class="front">
-                                <div id="f1" class="front-content">
-                                    <h1>Front 1</h1>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <div id="b1" class="back-content">
-                                    <h1>Back 1</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Paper 2 -->
-                        <div id="p2" class="paper">
-                            <div class="front">
-                                <div id="f2" class="front-content">
-                                    <h1>Front 2</h1>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <div id="b2" class="back-content">
-                                    <h1>Back 2</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Paper 3 -->
-                        <div id="p3" class="paper">
-                            <div class="front">
-                                <div id="f3" class="front-content">
-                                    <h1>Front 3</h1>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <div id="b3" class="back-content">
-                                    <h1>Back 3</h1>
-                                </div>
-                            </div>
-                        </div>
+            <section class="aboutmdsection" id="aboutmd">
+                <div class="content">
+                    <div class="textcontent">
+                        <h2><span>About Math Diary</span></h2>
+                        <p>Website interaktif yang dibuat untuk membantu siswa yang sedang belajar matematika menghafal rumus-rumus yang ada. 
+                            Permainan yang diterapkan di website ini adalah user harus menyusun rumus dengan men drag and drop bagian-bagian ke dalam tempat yang telah disediakan untuk mengetahui rumus apa itu
+                        </p>
                     </div>
-                
-                    <!-- Next Button -->
-                    <button id="next-btn">
-                        <i class="ri-arrow-right-fill"></i>
-                    </button>
+                    <div class="imgcontent">
+                        <img src="..\pictures\omori_icon.jpg" alt="Profile Icon">
+                    </div>
                 </div>
             </section>
 
             <section class="memosection" id="memories">
+                <div class="titleplay">
+                    <h2>Notebook</h2>
+                </div>
                 <div class ="drop-revealcontainer">
                     <div class="dropcontainer">
                         <div class="dropzone" id="dropzone1"></div>
                         <div class="dropzone" id="dropzone2"></div>
                         <div class="dropzone" id="dropzone3"></div>
                     </div>
-                    <div class ="revealcontainer">
+                    <div class="revealcontainer">
                         <div class="reveal">
-                            <h3><span>Reveal</span></h3>
+                            <h3><span>REVEAL</span></h3>
+                            <h4><span id="revealText"></span></h4>
+                            <p id="revealDesc1"></p>
+                            <p id="revealDesc2"></p>  
                         </div>
                     </div>
                 </div>
@@ -135,22 +90,25 @@
                 <div class = "photoscontainer">
                     <div id = "photoszone">
                         <div class="photo" id="photo1" draggable="true">
-                            <h3><span>-cos(x)</span></h3>
+                            <h3>sin<sup>2</sup>θ</h3>
                         </div>
                         <div class="photo" id="photo2" draggable="true">
-                            <h3><span>sin(x)</span></h3>
+                            <h3>cos<sup>2</sup>θ</h3>
                         </div>
                         <div class="photo" id="photo3" draggable="true">
-                            <h3><span>C</span></h3>
+                            <h3>tan<sup>2</sup>θ</h3>
                         </div>
                         <div class="photo" id="photo4" draggable="true">
-                            <h3><span>|sin(x)|</span></h3>
+                            <h3>sec<sup>2</sup>θ</h3>
                         </div>
                         <div class="photo" id="photo5" draggable="true">
-                            <h3><span>ln</span></h3>
+                            <h3>1</h3>
                         </div>
                         <div class="photo" id="photo6" draggable="true">
-                            <h3><span>C</span></h3>
+                            <h3>csc<sup>2</sup>θ</h3>
+                        </div>
+                        <div class="photo" id="photo7" draggable="true">
+                            <h3>cot<sup>2</sup>θ</h3>
                         </div>
                     </div>
                 </div>

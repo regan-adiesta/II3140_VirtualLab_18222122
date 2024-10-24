@@ -25,90 +25,6 @@ const linkA = () =>{
 }
 navLink.forEach(i => i.addEventListener('click' , linkA) )
 
-// References to DOM Elements
-const prevBtn = document.querySelector("#prev-btn");
-const nextBtn = document.querySelector("#next-btn");
-const book = document.querySelector("#book");
-
-const paper1 = document.querySelector("#p1");
-const paper2 = document.querySelector("#p2");
-const paper3 = document.querySelector("#p3");
-
-// Event Listener
-prevBtn.addEventListener("click", goPrevPage);
-nextBtn.addEventListener("click", goNextPage);
-
-// Business Logic
-let currentLocation = 1;
-let numOfPapers = 3;
-let maxLocation = numOfPapers + 1;
-
-function openBook() {
-    book.style.transform = "translateX(50%)";
-    prevBtn.style.transform = "translateX(-180px)";
-    nextBtn.style.transform = "translateX(180px)";
-}
-
-function closeBook(isAtBeginning) {
-    if(isAtBeginning) {
-        book.style.transform = "translateX(0%)";
-    } else {
-        book.style.transform = "translateX(100%)";
-    }
-    
-    prevBtn.style.transform = "translateX(0px)";
-    nextBtn.style.transform = "translateX(0px)";
-}
-
-function goNextPage() {
-    if(currentLocation < maxLocation) {
-        switch(currentLocation) {
-            case 1:
-                openBook();
-                paper1.classList.add("flipped");
-                paper1.style.zIndex = 1;
-                break;
-            case 2:
-                paper2.classList.add("flipped");
-                paper2.style.zIndex = 2;
-                break;
-            case 3:
-                paper3.classList.add("flipped");
-                paper3.style.zIndex = 3;
-                closeBook(false);
-                break;
-            default:
-                throw new Error("unkown state");
-        }
-        currentLocation++;
-    }
-}
-
-function goPrevPage() {
-    if(currentLocation > 1) {
-        switch(currentLocation) {
-            case 2:
-                closeBook(true);
-                paper1.classList.remove("flipped");
-                paper1.style.zIndex = 3;
-                break;
-            case 3:
-                paper2.classList.remove("flipped");
-                paper2.style.zIndex = 2;
-                break;
-            case 4:
-                openBook();
-                paper3.classList.remove("flipped");
-                paper3.style.zIndex = 1;
-                break;
-            default:
-                throw new Error("unkown state");
-        }
-
-        currentLocation--;
-    }
-}
-
 const photos = document.querySelectorAll('.photo');
 const photosZone = document.getElementById('photoszone')
 const dropZones = document.querySelectorAll('.dropzone');
@@ -144,42 +60,102 @@ const dropZones = document.querySelectorAll('.dropzone');
 
 // Allow drop on each drop zone
 
-// Loop through each photo and add the dragstart event
-// Loop through each photo and add the dragstart event
+
 photos.forEach(photo => {
     photo.addEventListener('dragstart', function(event) {
-        event.dataTransfer.setData('text', event.target.id); // Set the photo id
+        event.dataTransfer.setData('text', event.target.id); 
     });
 });
 
-// Allow drop on each drop zone
+// dropZones.forEach(dropZone => {
+//     dropZone.addEventListener('dragover', function(event) {
+//         event.preventDefault(); 
+//     });
+
+//     dropZone.addEventListener('drop', function(event) {
+//         event.preventDefault();
+//         const photoId = event.dataTransfer.getData('text'); 
+//         const draggedPhoto = document.getElementById(photoId); 
+        
+//         if (!dropZone.hasChildNodes()) {
+//             dropZone.appendChild(draggedPhoto); 
+//         } else {
+//             alert("Sudah terisi silahkan coba kotak yang lain."); 
+//         }
+//     });
+// });
 dropZones.forEach(dropZone => {
     dropZone.addEventListener('dragover', function(event) {
-        event.preventDefault(); // Necessary to allow dropping
+        event.preventDefault(); 
     });
 
     dropZone.addEventListener('drop', function(event) {
         event.preventDefault();
-        const photoId = event.dataTransfer.getData('text'); // Get the photo id
-        const draggedPhoto = document.getElementById(photoId); // Find the dragged photo
+        const photoId = event.dataTransfer.getData('text'); 
+        const draggedPhoto = document.getElementById(photoId); 
         
-        // Check if the dropzone is empty (no child elements)
         if (!dropZone.hasChildNodes()) {
-            dropZone.appendChild(draggedPhoto); // Append the photo to the drop zone if it's empty
+            dropZone.appendChild(draggedPhoto); 
+            checkFormula(); // Trigger formula check after successful drop
         } else {
-            alert("Try "); // Show a message if it's not empty
+            alert("Sudah terisi silahkan coba kotak yang lain."); 
         }
     });
 });
 
-// Allow returning the photo back to the photos zone
 photosZone.addEventListener('dragover', function(event) {
     event.preventDefault();
 });
 
 photosZone.addEventListener('drop', function(event) {
     event.preventDefault();
-    const photoId = event.dataTransfer.getData('text'); // Get the photo id
-    const draggedPhoto = document.getElementById(photoId); // Find the dragged photo
-    photosZone.appendChild(draggedPhoto); // Append the photo back to the original zone
+    const photoId = event.dataTransfer.getData('text'); 
+    const draggedPhoto = document.getElementById(photoId); 
+    photosZone.appendChild(draggedPhoto); 
 });
+
+
+function checkFormula() {
+    const dropzone1 = document.getElementById("dropzone1").children[0]?.id || null;
+    const dropzone2 = document.getElementById("dropzone2").children[0]?.id || null;
+    const dropzone3 = document.getElementById("dropzone3").children[0]?.id || null;
+
+    const currenPhotos = new Set([dropzone1, dropzone2, dropzone3]);
+
+    let formula = "";
+    let desc1 = "";
+    let desc2 = "";
+
+    const formula1 = new Set(["photo1", "photo2", "photo5"]); 
+    const formula2 = new Set(["photo3", "photo4", "photo5"]); 
+    const formula3 = new Set(["photo6", "photo7", "photo5"]); 
+
+    if (isEqualSet(currenPhotos, formula1)) {
+        formula = "sin<sup>2</sup>θ + cos<sup>2</sup>θ = 1";
+        desc1 = "Do you mean this formula?? >W<";
+        desc2 = "This is a <b>Pythagorean identities</b>, as the name suggests, are derived from the Pythagoras theorem."
+    } else if (isEqualSet(currenPhotos, formula2)) {
+        formula = "1 + tan<sup>2</sup>θ = sec<sup>2</sup>θ";
+        desc1 = "Do you mean this formula?? >W<";
+        desc2 = "This is a <b>Pythagorean identities</b>, as the name suggests, are derived from the Pythagoras theorem."
+    } else if ((isEqualSet(currenPhotos, formula3))) {
+        formula = "1 + cot<sup>2</sup>θ = csc<sup>2</sup>θ";
+        desc1 = "Do you mean this formula?? >W<";
+        desc2 = "This is a <b>Pythagorean identities</b>, as the name suggests, are derived from the Pythagoras theorem."
+    } else {
+        formula = "Hmmm...Sorry!";
+        desc1 = "I dont know this formula yet >__<";
+    }
+
+    document.getElementById("revealText").innerHTML = formula;
+    document.getElementById("revealDesc1").innerText = desc1;
+    document.getElementById("revealDesc2").innerHTML = desc2;
+}
+
+function isEqualSet(setA, setB) {
+    if (setA.size !== setB.size) return false;
+    for (let item of setA) {
+        if (!setB.has(item)) return false;
+    }
+    return true;
+}
