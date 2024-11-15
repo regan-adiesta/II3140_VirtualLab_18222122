@@ -1,11 +1,11 @@
-from flask import Flask , render_template, url_for, redirect
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin 
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError
-from flask_bcrypt import Bcrypt
-from werkzeug.security import generate_password_hash, check_password_hash
+# from flask import Flask , render_template, url_for, redirect
+# from flask_sqlalchemy import SQLAlchemy
+# from flask_login import UserMixin 
+# from flask_wtf import FlaskForm
+# from wtforms import StringField, PasswordField, SubmitField
+# from wtforms.validators import InputRequired, Length, ValidationError
+# from flask_bcrypt import Bcrypt
+# from werkzeug.security import generate_password_hash, check_password_hash
 
 # app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -66,8 +66,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 #     return render_template('register.html', form=form)
 from website import create_app, db
 from flask import Flask, request, session, jsonify
+from flask_cors import CORS
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = create_app()
+CORS(app)
+app.config['DEBUG'] = os.environ.get('FLASK_DEBUG')
 
 if __name__ == '__main__':       
     app.run(debug=True)
