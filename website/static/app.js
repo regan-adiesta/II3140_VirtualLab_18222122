@@ -96,7 +96,8 @@ dropZones.forEach(dropZone => {
         
         if (!dropZone.hasChildNodes()) {
             dropZone.appendChild(draggedPhoto); 
-            checkFormula(); // Trigger formula check after successful drop
+            checkFormula();
+            saveState() ;
         } else {
             alert("Sudah terisi silahkan coba kotak yang lain."); 
         }
@@ -112,7 +113,55 @@ photosZone.addEventListener('drop', function(event) {
     const photoId = event.dataTransfer.getData('text'); 
     const draggedPhoto = document.getElementById(photoId); 
     photosZone.appendChild(draggedPhoto); 
+    saveState();
 });
+
+function saveState() {
+    const state = {};
+
+    dropZones.forEach((dropZone, index) => {
+        const photo = dropZone.children[0]?.id || null;
+        state[`dropZone${index + 1}`] = photo;
+    });
+
+    console.log("Saving state to server:", state);
+
+    fetch('/state/save_state', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(state)
+    })
+    .then(response => response.json())
+    .then(data => console.log("Server response:", data))
+    .catch(error => console.error("Error saving state:", error));
+}
+
+
+function loadSavedState() {
+    fetch('/state/get_state')
+        .then(response => response.json())
+        .then(state => {
+            console.log("Loaded state from server:", state);
+
+            dropZones.forEach((dropZone, index) => {
+                const photoId = state[`dropZone${index + 1}`];
+                if (photoId) {
+                    const photo = document.getElementById(photoId);
+                    if (photo) {
+                        dropZone.appendChild(photo);
+                    }
+                }
+            });
+
+            checkFormula(); 
+        })
+        .catch(error => console.error("Error loading state:", error));
+}
+
+
+window.addEventListener('DOMContentLoaded', loadSavedState);
 
 
 function checkFormula() {

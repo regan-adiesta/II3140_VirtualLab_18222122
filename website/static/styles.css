@@ -95,6 +95,7 @@ header {
     font-family: "Gaegu", sans-serif;
     width: 100%;
     background-color: #333;
+    padding: 20px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -303,7 +304,6 @@ h3 span{
     flex-wrap: wrap; 
 }
 
-/* Drop and reveal container styles */
 .dropcontainer, .revealcontainer {
     display: flex;
     align-items: center;
@@ -437,9 +437,102 @@ h3 span{
     }
 }
 
+/* Login Container */
+.login-container {
+    background-color: #ffffff; /* White background for high contrast */
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Darker shadow for depth */
+    margin-top: 20px;
+}
+
+/* Login Form */
+.login-form h3.login-title {
+    font-size: 32px; /* Larger title */
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold; /* Increased weight for visibility */
+    text-align: center;
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333; /* Darker color for label text */
+    font-size: 18px; /* Larger font size for labels */
+}
+
+.login-form .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #888; /* Darker border for input */
+    border-radius: 5px;
+    font-size: 18px; /* Larger font size for input text */
+    color: #333; /* Darker text color */
+    box-sizing: border-box;
+}
+
+.login-form .form-group input::placeholder {
+    color: #aaa; /* Light grey for placeholder text */
+}
+
+.login-form .form-group input:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+/* Submit Button */
+.btn.btn-utama {
+    background-color: #0056b3; /* Darker blue for button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 20px; /* Larger font size for button */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for button */
+}
+
+.btn.btn-utama:hover {
+    background-color: #003f8a; /* Darker shade on hover */
+}
+
+/* Register Link */
+.login-form .register-link {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    display: block;
+}
+
+.login-form .register-link a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.login-form .register-link a:hover {
+    text-decoration: underline;
+}
+
 /* footer */
 footer{
-    background-color: black;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     height: 100px;
     width: 100%;
 }
