@@ -437,89 +437,72 @@ h3 span{
     }
 }
 
-/* Login Container */
 .login-container {
-    background-color: #ffffff; /* White background for high contrast */
+    background-color: #f9f9f9;
     width: 100%;
     max-width: 400px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Darker shadow for depth */
-    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Login Form */
 .login-form h3.login-title {
-    font-size: 32px; /* Larger title */
-    color: #333;
     margin-bottom: 20px;
-    font-weight: bold; /* Increased weight for visibility */
-    text-align: center;
+    font-size: 24px;
+    color: #333;
 }
 
 .login-form .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-align: left;
 }
 
 .login-form .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     font-weight: bold;
-    color: #333; /* Darker color for label text */
-    font-size: 18px; /* Larger font size for labels */
+    color: #555;
 }
 
 .login-form .form-group input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #888; /* Darker border for input */
-    border-radius: 5px;
-    font-size: 18px; /* Larger font size for input text */
-    color: #333; /* Darker text color */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
     box-sizing: border-box;
 }
 
-.login-form .form-group input::placeholder {
-    color: #aaa; /* Light grey for placeholder text */
-}
-
 .login-form .form-group input:focus {
-    border-color: #0056b3;
+    border-color: #555;
     outline: none;
 }
 
-/* Submit Button */
 .btn.btn-utama {
-    background-color: #0056b3; /* Darker blue for button */
+    background-color: #555;
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 15px;
-    font-size: 20px; /* Larger font size for button */
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
     width: 100%;
-    margin-top: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for button */
 }
 
 .btn.btn-utama:hover {
-    background-color: #003f8a; /* Darker shade on hover */
+    background-color: #555;
 }
 
-/* Register Link */
 .login-form .register-link {
-    margin-top: 20px;
-    font-size: 16px;
+    margin-top: 15px;
+    font-size: 14px;
     color: #555;
-    text-align: center;
-    display: block;
 }
 
 .login-form .register-link a {
-    color: #0056b3;
+    color: #555;
     text-decoration: none;
 }
 
